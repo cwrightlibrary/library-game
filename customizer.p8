@@ -29,20 +29,73 @@ end
 
 function _customizer()
  customizer={arrow={x1=world.preview.x,y1=world.preview.y+10,x2=world.preview.x+world.preview.w,y2=world.preview.y+40,loc=1}}
+ shirtcol={grey=true,black=false,yellow=false,loc=1}
  customizer.draw=function()
   rect(customizer.arrow.x1,customizer.arrow.y1,customizer.arrow.x2,customizer.arrow.y2,12)
   rect(customizer.arrow.x1+1,customizer.arrow.y1,customizer.arrow.x2-1,customizer.arrow.y2,12)
   rect(customizer.arrow.x1,customizer.arrow.y1+1,customizer.arrow.x2,customizer.arrow.y2-1,12)
+  
+  if customizer.arrow.loc==1 then
+   print('size',64-4*2,118,12)
+  elseif customizer.arrow.loc==2 then
+   print('head',64-4*2,118,12)
+  elseif customizer.arrow.loc==3 then
+   print('shirt',64-5*2,118,12)
+  elseif customizer.arrow.loc==4 then
+   print('pants',64-5*2,118,12)
+  elseif customizer.arrow.loc==5 then
+   print('shoes',64-5*2,118,12)
+  end
  end
  customizer.update=function()
-  if btnp(2) and customizer.arrow.loc>1 then customizer.arrow.loc-=1 elseif btnp(2) and customizer.arrow.loc==1 then customizer.arrow.loc=4 end
-  if btnp(3) and customizer.arrow.loc<4 then customizer.arrow.loc+=1 elseif btnp(3) and customizer.arrow.loc==4 then customizer.arrow.loc=1 end
+  if btnp(2) and customizer.arrow.loc>1 then customizer.arrow.loc-=1 elseif btnp(2) and customizer.arrow.loc==1 then customizer.arrow.loc=5 end
+  if btnp(3) and customizer.arrow.loc<5 then customizer.arrow.loc+=1 elseif btnp(3) and customizer.arrow.loc==5 then customizer.arrow.loc=1 end
 
-  if(customizer.arrow.loc==1) customizer.arrow.y1=world.preview.y+10 customizer.arrow.y2=world.preview.y+40
-  if(customizer.arrow.loc==2) customizer.arrow.y1=world.preview.y+45 customizer.arrow.y2=world.preview.y+65
-  if(customizer.arrow.loc==3) customizer.arrow.y1=world.preview.y+70 customizer.arrow.y2=world.preview.y+83
-  if(customizer.arrow.loc==4) customizer.arrow.y1=world.preview.y+84 customizer.arrow.y2=world.preview.y+90
+  if(customizer.arrow.loc==1) customizer.arrow.y1=world.preview.y customizer.arrow.y2=world.preview.y+world.preview.h
+  if(customizer.arrow.loc==2) customizer.arrow.y1=world.preview.y+10 customizer.arrow.y2=world.preview.y+40
+  if(customizer.arrow.loc==3) customizer.arrow.y1=world.preview.y+45 customizer.arrow.y2=world.preview.y+65
+  if(customizer.arrow.loc==4) customizer.arrow.y1=world.preview.y+70 customizer.arrow.y2=world.preview.y+83
+  if(customizer.arrow.loc==5) customizer.arrow.y1=world.preview.y+84 customizer.arrow.y2=world.preview.y+90
+
+  if customizer.arrow.loc==1 then
+   if btnp(1) and player.sp<4 then 
+    player.sp+=1
+   elseif btnp(1) and player.sp==4 then
+    player.sp=1
+   elseif btnp(0) and player.sp>1 then
+    player.sp-=1
+   elseif btnp(0) and player.sp==1 then
+    player.sp=4
+   end
+  elseif customizer.arrow.loc==3 then
+   if btnp(1) then
+    if shirtcol.loc<3 then
+     shirtcol.loc+=1
+    elseif shirtcol.loc==3 then
+     shirtcol.loc=1
+    end
+   elseif btnp(0) then
+    if shirtcol.loc>1 then
+     shirtcol.loc-=1
+    elseif shirtcol.loc==1 then
+     shirtcol.loc=3
+    end
+   end
+  end
+  if shirtcol.loc==1 then
+   shirtcol.grey=true shirtcol.black=false shirtcol.yellow=false
+  elseif shirtcol.loc==2 then
+   shirtcol.black=true shirtcol.grey=false shirtcol.yellow=false
+  elseif shirtcol.loc==3 then
+   shirtcol.yellow=true shirtcol.black=false shirtcol.grey=false
+  end
  end
+end
+
+function shirt_col()
+ if(shirtcol.yellow) pal(6,12)
+ if(shirtcol.black) pal(6,2)
+ if(shirtcol.grey) pal()
 end
 
 function _player()
@@ -53,7 +106,7 @@ function _player()
 end
 
 function _world()
- world={preview={x=40,y=10,w=9*6,h=17*6}}
+ world={preview={x=36,y=10,w=9*6,h=17*6}}
  world.draw=function()
   cls(3)
   rectfill(world.preview.x-2,world.preview.y-2,world.preview.x+world.preview.w+2,world.preview.y+world.preview.h+2,0)
@@ -73,7 +126,9 @@ function osspr(sprite,x,y,w,h,scale,flip_h,flip_v)
  sspr(sx,sy,w*8,h*8,x,y+scale,w+(scale*w*8),h+(scale*h*8),flip_h,flip_v)
 
  pal()
+ shirt_col()
  _palette()
+
  sspr(sx,sy,w*8,h*8,x,y,w+(scale*w*8),h+(scale*h*8),flip_h,flip_v)
 end
 __gfx__
