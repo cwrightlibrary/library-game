@@ -3,6 +3,19 @@
 ## Concept
 You’re a volunteer for the day, help out librarians complete their tasks for the day to win.
 
+## To-Do
+### Complete Tasks
+- [x] Print Documents
+- [ ] Drum Hero
+- [ ] Word Search
+- [ ] Astronomy Search
+### Core Game
+- [ ] Complete library design/layout
+- [ ] Create dialog for different players
+- [ ] Make music and sfx
+- [ ] Find a good way to transition between the core game and tasks (*Maybe stop the cls() and generate random black dots until the screen is covered, then reverse it with the new task/core*)
+- [ ] Track the player's progress visually
+
 ## Tasks
 -	Open mic night – drum on beat to help
 -	Water plants – fill within sweet-spot margin
