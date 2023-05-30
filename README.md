@@ -15,6 +15,7 @@ You’re a volunteer for the day, help out librarians complete their tasks for t
 - [ ] Make music and sfx
 - [ ] Find a good way to transition between the core game and tasks (*Maybe stop the cls() and generate random black dots until the screen is covered, then reverse it with the new task/core*)
 - [ ] Track the player's progress visually
+- [ ] Procedural NPC generation (create a base sprite set and change features randomly for variation)
 
 ## Tasks
 -	Open mic night – drum on beat to help
