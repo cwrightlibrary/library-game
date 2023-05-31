@@ -9,6 +9,7 @@ You’re a volunteer for the day, help out librarians complete their tasks for t
 - [ ] Drum Hero
 - [ ] Word Search
 - [x] Astronomy Search
+- [ ] In Astronomy Search, make the light glow red when the constellation is far, yellow when nearer, green when at least one star is onscreen
 ### Core Game
 - [ ] Complete library design/layout
 - [ ] Create dialog for different players
