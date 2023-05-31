@@ -8,7 +8,7 @@ You’re a volunteer for the day, help out librarians complete their tasks for t
 - [x] Print Documents
 - [ ] Drum Hero
 - [ ] Word Search
-- [ ] Astronomy Search
+- [x] Astronomy Search
 ### Core Game
 - [ ] Complete library design/layout
 - [ ] Create dialog for different players
