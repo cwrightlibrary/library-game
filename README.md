@@ -4,6 +4,8 @@
 You’re a volunteer for the day, help out librarians complete their tasks for the day to win.
 
 ## To-Do
+### Broader Console Goals
+- [ ] Write a python application with PySimpleGUI that runs when the Pi is started. From there, boot the game. Console menu, design should be like Switch.
 ### Complete Tasks
 - [x] Print Documents
 - [ ] Drum Hero
