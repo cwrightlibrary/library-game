@@ -7,11 +7,12 @@ You’re a volunteer for the day, help out librarians complete their tasks for t
 ### Broader Console Goals
 - [ ] Write a python application with PySimpleGUI that runs when the Pi is started. From there, boot the game. Console menu, design should be like Switch.
 ### Complete Tasks
+- [ ] **Fix Word Search allow_range table**
 - [x] Print Documents
 - [ ] Drum Hero
 - [ ] Word Search
 - [x] Astronomy Search
-- [ ] In Astronomy Search, make the light glow red when the constellation is far, yellow when nearer, green when at least one star is onscreen
+- [x] In Astronomy Search, make the light glow red when the constellation is far, yellow when nearer, green when at least one star is onscreen
 ### Core Game
 - [ ] Complete library design/layout
 - [ ] Create dialog for different players
